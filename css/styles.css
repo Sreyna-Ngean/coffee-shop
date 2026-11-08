@@ -1,0 +1,54 @@
+:root{--bg:#eceeea;--ink:#2b1d16;--muted:#6d625b;--panel:#ffffff;--line:#d6d9d3;--accent:#1d5e50;--accent-ink:#fff;--danger:#a3281f}
+@media (prefers-color-scheme:dark){:root{--bg:#161412;--ink:#f0e9e2;--muted:#a79b92;--panel:#211d1a;--line:#38322d;--accent:#5bb89f;--accent-ink:#0f1a17;--danger:#e8746b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;margin:0}
+.hidden{display:none!important}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 1.5rem;background:var(--panel);border-bottom:1px solid var(--line)}
+h1{font-size:1.5rem}
+button{font:inherit;cursor:pointer;color:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tab{background:none;border:0;padding:.5rem 1rem;border-bottom:3px solid transparent}
+.tab.active{border-color:var(--accent);font-weight:700}
+#sell{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;padding:1.5rem;max-width:1200px;margin:auto}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1rem}
+.sizes{margin-left:auto;display:flex;gap:.5rem;align-items:center}
+.chip{border:1px solid var(--line);background:var(--panel);padding:.3rem .9rem;border-radius:999px}
+.chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.75rem}
+.item{display:flex;flex-direction:column;justify-content:space-between;min-height:96px;text-align:left;padding:.9rem;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.item:hover{border-color:var(--accent)}
+.item:active{transform:scale(.97)}
+.item b{color:var(--accent)}
+.cart{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.2rem;align-self:start;position:sticky;top:1rem}
+.cart ul{list-style:none;margin:1rem 0;padding:0}
+.cart li{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:.5rem}
+.qty button{width:32px;height:32px;border:1px solid var(--line);background:none;border-radius:50%}
+small,.empty{color:var(--muted)}
+.totals div{display:flex;justify-content:space-between;align-items:center;padding:.2rem 0}
+.totals dt,.totals dd{margin:0}
+.grand{font-size:1.4rem;font-weight:700;border-top:2px solid var(--ink);margin-top:.4rem;padding-top:.5rem!important}
+label{display:block;margin-top:1rem}
+select,input{font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:.4rem;width:100%}
+.totals input{width:70px;text-align:right}
+.actions{display:flex;gap:.5rem;margin-top:1rem}
+.primary,.ghost{padding:.7rem 1rem;border-radius:6px;border:1px solid var(--accent)}
+.primary{background:var(--accent);color:var(--accent-ink);flex:1;font-weight:700}
+.ghost{background:none}
+.danger{color:var(--danger);border-color:var(--danger)}
+#sales{max-width:1000px;margin:auto;padding:1.5rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-bottom:1rem}
+.stats div{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1rem;display:flex;flex-direction:column}
+.stats b{font-size:1.5rem;font-family:Georgia,serif}
+.bar{display:flex;gap:.5rem;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;background:var(--panel)}
+th,td{text-align:left;padding:.6rem;border-bottom:1px solid var(--line)}
+.r{text-align:right}
+.receipt{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:1rem}
+.paper{background:#fff;color:#111;width:300px;padding:1.2rem;font-family:"Courier New",monospace;font-size:14px;border-radius:4px}
+.paper h3{text-align:center}.c{text-align:center}
+.row{display:flex;justify-content:space-between;margin:.2rem 0}.big{font-weight:700;font-size:1.1rem}
+.receipt .actions{width:300px}
+@media(max-width:800px){#sell{grid-template-columns:1fr}.cart{position:static}}
+@media print{body *{visibility:hidden}.paper,.paper *{visibility:visible}.receipt{background:none}.paper{position:absolute;left:0;top:0}}

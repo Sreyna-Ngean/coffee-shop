@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brew Counter – Coffee Shop Sales</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="top">
+  <h1>Brew Counter</h1>
+  <nav>
+    <button class="tab active" data-view="sell">Sell</button>
+    <button class="tab" data-view="sales">Sales report</button>
+  </nav>
+</header>
+
+<main id="sell" class="view">
+  <section class="menu">
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="menuGrid"></div>
+  </section>
+  <aside class="cart">
+    <h2>Current order</h2>
+    <ul id="cartList"></ul>
+    <p class="empty" id="cartEmpty">No items yet. Tap a drink to add it.</p>
+    <dl class="totals">
+      <div><dt>Subtotal</dt><dd id="subtotal">$0.00</dd></div>
+      <div><dt>Discount (%)</dt><dd><input type="number" id="discount" min="0" max="100" value="0"></dd></div>
+      <div class="grand"><dt>Total</dt><dd id="total">$0.00</dd></div>
+    </dl>
+    <label>Payment
+      <select id="payment"><option>Cash</option><option>KHQR / Bank transfer</option><option>Card</option></select>
+    </label>
+    <div class="actions">
+      <button class="ghost" id="clearBtn">Clear</button>
+      <button class="primary" id="payBtn">Complete sale</button>
+    </div>
+  </aside>
+</main>
+
+<main id="sales" class="view hidden">
+  <div class="stats" id="stats"></div>
+  <div class="bar">
+    <button class="ghost" id="csvBtn">Export CSV</button>
+    <button class="ghost danger" id="resetBtn">Delete all sales</button>
+  </div>
+  <table>
+    <thead><tr><th>Time</th><th>Items</th><th>Payment</th><th class="r">Total</th></tr></thead>
+    <tbody id="salesBody"></tbody>
+  </table>
+  <p class="empty" id="salesEmpty">No sales recorded yet.</p>
+</main>
+
+<div id="receipt" class="receipt hidden" role="dialog" aria-label="Receipt">
+  <div class="paper" id="receiptPaper"></div>
+  <div class="actions"><button class="ghost" id="closeReceipt">Close</button><button class="primary" id="printBtn">Print</button></div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
